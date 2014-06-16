@@ -1,12 +1,14 @@
-// setup app configuration to install modules
-{
-	"name"         : "node-users",
-  	"version"      : "1.0.0",
-  	"description"  : "A simple application to add and list users.",
-  	"main"         : "server.js",
-  	"author"       : "Damir Dimitrovici",
-  	"dependencies" : {
-    	"express"    : "~3.4.4",
-    	"mongoose"   : "~3.6.2"
-	}
-}
+// package.json
+  {
+  "name"         : "node-users",
+  "version"      : "1.0.0",
+  "description"  : "A simple page that addes and lists users.",
+  "main"         : "server.js",
+  "author"       : "Damir",
+  "dependencies" : {
+  	"express"    : "~3.4.4",
+  	"mongoose"   : "~3.6.2"
+    },
+  "private"      : true,
+  }
+
