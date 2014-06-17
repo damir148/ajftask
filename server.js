@@ -15,6 +15,13 @@ app.configure(function(){
 	app.use(express.bodyParser()); 				  // pull information from html in POST
 });
 
-// listen on port 8080
-app.listen(8080);
-console.log("App listening on port 8080");
+// define model
+var User = mongoose.model('User', {
+	name : String,
+	email : String,
+	password : String,
+});
+
+// listen on port 1408
+app.listen(1408);
+console.log("App listening on port 1408");
