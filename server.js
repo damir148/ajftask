@@ -17,11 +17,26 @@ app.configure(function(){
 
 // define model
 var User = mongoose.model('User', {
-	name : String,
-	email : String,
+	name     : String,
+	email    : String,
 	password : String,
+});
+
+// express routes to handle API calls
+
+// get all users
+app.get('/api/users', function(req, res) {
+	// use mongoose to get all users in the database
+	User.find(function(err, users) {
+		// if there is an error retrieving, send the error. nothing after res.send(err) will run
+		if (err) {
+			res.send(err);			
+		}
+		
+		res.json(users); // return all users in JSON format
+	});
 });
 
 // listen on port 1408
 app.listen(1408);
-console.log("App listening on port 1408");
+console.log("Application listening on port 1408");
