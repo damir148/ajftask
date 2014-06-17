@@ -24,7 +24,7 @@ function userController($scope, $http) {
 		});
 	};
 	
-	// delete user if checked
+	// delete user if clicked
 	$scope.deleteUser = function(id){
 		$http.delete('/api/users/'+id).success(function(data){
 			$scope.users = data;
