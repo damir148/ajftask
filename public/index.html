@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="users">
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- CSS -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<style>
+		html { overflow-y:scroll; }
+		body { padding-top:50px; }
+		#user-list { margin-bottom:30px; }
+		#checkbox { list-style:none; }
+	</style>
+	
+	<!-- Scripts -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+	<script src="js/core.js"></script>
+	
+	<title>User Application</title>
+</head>
+<body ng-controller="userController"><!-- set user controller and get all users -->
+	<div class="container">
+		<div class="jumbotron text-center">
+			<h1>Number of Users <span class="label label-info">{{ users.length }}</span></h1>
+		</div>
+
+		<div id="user-list" class="row">
+			<div class="col-sm-4 col-sm-offset-4">
+				<ol class="checkbox" ng-repeat="user in users">
+					<li>Name: {{ user.name }}</li>
+					<li>Email: {{ user.email }}</li>
+					<li>Password: {{ user.password }}</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
