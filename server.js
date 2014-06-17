@@ -37,6 +37,31 @@ app.get('/api/users', function(req, res) {
 	});
 });
 
+// create a user and send back all the users
+app.post('/api/users', function(req, res){
+	// create a user, information comes from AJAX request from Angular
+	User.create({
+		name     : req.body.name,
+		email    : req.body.email,
+		password : req.body.password,
+		done     : false,
+	}, 
+	function(err, user){
+		if (err) {
+			res.send(err);
+		}
+		
+		// create user and return all users
+		User.find(function(err, users){
+			if (err) {
+				res.send(err);
+			}
+			
+			res.json(users);
+		});
+	});
+});
+
 // listen on port 1408
 app.listen(1408);
 console.log("Application listening on port 1408");
