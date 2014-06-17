@@ -62,6 +62,26 @@ app.post('/api/users', function(req, res){
 	});
 });
 
+// delete a user
+app.delete('/api/users/:user_id', function(req, res){
+	User.remove({
+		_id : req.params.user_id
+	}, function(err, user){
+		if (err) {
+			res.send(err);			
+		}
+		
+		// delete user and return all users
+		User.find(function(err, users) {
+			if (err) {
+				res.send(err);				
+			}
+			
+			res.json(users);
+		});
+	});
+});
+
 // listen on port 1408
 app.listen(1408);
 console.log("Application listening on port 1408");
